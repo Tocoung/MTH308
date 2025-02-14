@@ -1,0 +1,46 @@
+a=[[3,2,10],[-6,2,5],[4,0,1]]
+b=[3,13,18]
+x=b
+i=0
+while(i<3):
+    j=i
+    p=j
+    while(j<3):
+        if(abs(a[j][i])>abs(a[p][i])):
+            p=j
+        j=j+1
+    j=0
+    while(j<3):
+        temp=a[i][j]
+        a[i][j]=a[p][j]
+        a[p][j]=temp
+        j=j+1
+    temp=b[i]
+    b[i]=b[p]
+    b[p]=temp
+    j=i+1
+    while(j<3):
+        m=a[j][i]/a[i][i]
+        a[j][i]=0
+        k=i+1
+        while(k<3):
+            a[j][k]=a[j][k]-m*a[i][k]
+            k=k+1
+        b[j]=b[j]-m*b[i]
+        j=j+1
+        #print(m)
+    i=i+1
+    #print(a)
+    #print(b)
+#print(a)
+x=b
+i=2
+while(i>=0):
+    j=0
+    x[i]=x[i]/a[i][i]
+    while(j<i):
+        x[j]=x[j]-a[j][i]*x[i]
+        j=j+1
+    i=i-1
+    #print(x)
+print(x)

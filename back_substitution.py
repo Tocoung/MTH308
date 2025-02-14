@@ -1,0 +1,13 @@
+a=[[2,1,0],[0,2.5,2],[0,0,-2.2]]
+b=[2,2,-2.2]
+x=b
+i=2
+while(i>=0):
+    j=0
+    x[i]=x[i]/a[i][i]
+    while(j<i):
+        x[j]=x[j]-a[j][i]*x[i]
+        j=j+1
+    i=i-1
+    #print(x)
+print(x)
