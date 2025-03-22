@@ -1,0 +1,35 @@
+a=[[5,-2,3],[-3,9,1],[2,-1,-7]]
+b=[-1,2,3]
+x=[0,0,0]
+y=[0,0,0]
+n=3
+k=1
+while(k<=8):
+    i=0
+    while(i<n):
+        j=0
+        t1=0
+        while(j<i):
+            t1=t1+a[i][j]*y[j]
+            j=j+1
+        t2=0
+        j=i+1
+        while(j<n):
+            t2=t2+a[i][j]*x[j]
+            j=j+1
+        y[i]=(b[i]-t1-t2)/a[i][i]
+        i=i+1
+    print(y[0],end='\t')
+    e0=abs(y[0]-x[0])*100/abs(y[0])
+    print(e0,end='\t')
+    print(y[1],end='\t')
+    e1=abs(y[1]-x[1])*100/abs(y[1])
+    print(e1,end='\t')
+    print(y[2],end='\t')
+    e2=abs(y[2]-x[2])*100/abs(y[2])
+    print(e2)
+    i=0
+    while(i<n):
+        x[i]=y[i]
+        i=i+1
+    k=k+1
